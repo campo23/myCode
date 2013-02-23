@@ -1,0 +1,14 @@
+#!/bin/bash
+
+for x in `ls $i`
+do
+        isRpm="$(echo ${x##*.})"
+        if [ "$isRpm" == "rpm" ]; then
+                alien $x
+        fi
+        isDeb="$(echo ${x##*.})"
+        if [ "$isDeb" == "deb" ]; then
+                dpkg -i $x
+        fi
+done
+

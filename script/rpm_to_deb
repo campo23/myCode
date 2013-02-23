@@ -1,0 +1,9 @@
+#!/bin/bash
+
+for x in `ls $i`
+do
+        ext="$(echo ${x##*.})"
+        if [ "$ext" == "rpm" ];then
+		alien $x
+	fi
+done
